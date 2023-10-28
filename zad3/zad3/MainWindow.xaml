@@ -1,0 +1,27 @@
+﻿<Window x:Class="MediaLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Media Library" Width="600" Height="400">
+    <Grid>
+        <ListView Name="mediaListView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding mediaItems}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tytuł" Width="120" DisplayMemberBinding="{Binding Tytuł}" />
+                    <GridViewColumn Header="Reżyser/Autor" Width="120" DisplayMemberBinding="{Binding ReżyserAutor}" />
+                    <GridViewColumn Header="Wydawca/Studio" Width="120" DisplayMemberBinding="{Binding WydawcaStudio}" />
+                    <GridViewColumn Header="Nośnik" Width="80" DisplayMemberBinding="{Binding Nośnik}" />
+                    <GridViewColumn Header="Długość" Width="80" DisplayMemberBinding="{Binding Długość}" />
+                    <GridViewColumn Header="Data Wydania" Width="100" DisplayMemberBinding="{Binding DataWydania}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Button Content="Dodaj" Width="100" Click="Dodaj_Click" />
+            <Button Content="Edytuj" Width="100" Click="Edytuj_Click" />
+            <Button Content="Usuń" Width="100" Click="Usuń_Click" />
+            <Button Content="Importuj" Width="100" Click="Importuj_Click" />
+            <Button Content="Eksportuj" Width="100" Click="Eksportuj_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

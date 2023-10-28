@@ -1,0 +1,57 @@
+﻿<Window x:Class="zad1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Twoja Aplikacja WPF" Height="400" Width="600">
+    <Window.Resources>
+        <!-- Styl dla Label z pogrubionym tekstem i font size na 24 -->
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+
+        <!-- Styl dla Button z innym tłem (#EEE) i font size na 20 -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#EEE" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <!-- Drugi styl dla Button z font size na 20 i modyfikacją kolorów: statycznego, przy najechaniu i przy kliknięciu -->
+        <Style x:Key="SpecialButton" TargetType="Button">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="#DDF" />
+            <Setter Property="Foreground" Value="#000" />
+            <Setter Property="BorderBrush" Value="#000" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#99D" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#99F" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Specjalny styl dla jednej wybranej Label z zmienionym kolorem tekstu na #900 -->
+        <Style x:Key="SpecialLabel" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="Foreground" Value="#900" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Umieszczanie WrapPanel-u u góry okna z przyciskami -->
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+            <!-- Przyciski z użyciem stylu SpecialButton -->
+            <Button Content="Przycisk 1" Style="{StaticResource SpecialButton}" />
+            <Button Content="Przycisk 2" Style="{StaticResource SpecialButton}" />
+            <Button Content="Przycisk 3" Style="{StaticResource SpecialButton}" />
+        </WrapPanel>
+
+        <!-- Umieszczanie StackPanel-u po lewej okna z etykietami -->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+            <!-- Etykiety z użyciem stylu Label i jednej z użyciem stylu SpecialLabel -->
+            <Label Content="Grupa 1" />
+            <Label Content="Grupa 2" />
+            <Label Content="Grupa 3" Style="{StaticResource SpecialLabel}" />
+        </StackPanel>
+    </Grid>
+</Window>

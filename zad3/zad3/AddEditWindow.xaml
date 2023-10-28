@@ -1,0 +1,45 @@
+﻿<Window x:Class="MediaLibrary.AddEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add/Edit Media Item" Width="400" Height="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Tytuł" Grid.Row="0" />
+        <TextBox Name="TytułTextBox" Grid.Row="0" Text="{Binding Tytuł, Mode=TwoWay}" />
+
+        <Label Content="Reżyser/Autor" Grid.Row="1" />
+        <TextBox Name="ReżyserAutorTextBox" Grid.Row="1" Text="{Binding ReżyserAutor, Mode=TwoWay}" />
+
+        <Label Content="Wydawca/Studio" Grid.Row="2" />
+        <TextBox Name="WydawcaStudioTextBox" Grid.Row="2" Text="{Binding WydawcaStudio, Mode=TwoWay}" />
+
+        <Label Content="Nośnik" Grid.Row="3" />
+        <ComboBox Name="NośnikComboBox" Grid.Row="3" SelectedItem="{Binding Nośnik, Mode=TwoWay}">
+            <ComboBoxItem Content="VHS" />
+            <ComboBoxItem Content="DVD" />
+            <ComboBoxItem Content="BlueRay" />
+            <ComboBoxItem Content="Kaseta" />
+            <ComboBoxItem Content="CD" />
+            <ComboBoxItem Content="Pendrive" />
+        </ComboBox>
+
+        <Label Content="Długość (HH:mm:ss)" Grid.Row="4" />
+        <TextBox Name="DługośćTextBox" Grid.Row="4" Text="{Binding Długość, Mode=TwoWay}" />
+
+        <Label Content="Data Wydania" Grid.Row="5" />
+        <DatePicker Name="DataWydaniaDatePicker" Grid.Row="5" SelectedDate="{Binding DataWydania, Mode=TwoWay}" />
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Zapisz" Name="ZapiszButton" Click="Zapisz_Click" Width="100" />
+            <Button Content="Anuluj" Name="AnulujButton" Click="Anuluj_Click" Width="100" />
+        </StackPanel>
+    </Grid>
+</Window>
